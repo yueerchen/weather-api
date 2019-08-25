@@ -7,10 +7,12 @@ const morgan = require("morgan");
 const logger = require("./utils/logger");
 const notFoundHandler = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/errorHandler");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
+app.use(cors());
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 } else {
